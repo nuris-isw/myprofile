@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const numberOfCertificates = 8; // Jumlah total sertifikat
     const thumbnailExtension = '.jpg'; // Asumsi format thumbnail adalah JPG
     const pdfExtension = '.pdf';
+    const toggleButton = document.getElementById("nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = navMenu.querySelectorAll("a");
 
     for (let i = 1; i <= numberOfCertificates; i++) {
         const certificateName = `cert${i}`;
@@ -25,5 +28,18 @@ document.addEventListener('DOMContentLoaded', function() {
         certificateItem.appendChild(link);
         certificateGrid.appendChild(certificateItem);
     }
+
+    toggleButton.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+        // Tutup menu setelah klik link (hanya untuk mobile)
+        if (window.innerWidth <= 768) {
+            navMenu.classList.remove("show");
+            }
+        });
+    });
 });
 

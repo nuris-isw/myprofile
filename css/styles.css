@@ -7,6 +7,14 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+:root {
+  --gradient-brand: linear-gradient(135deg, #400d51, #31e1f7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* Sticky Header */
 header {
   position: sticky;
@@ -52,6 +60,15 @@ header {
   border-bottom: 2px solid #31e1f7;
 }
 
+/* Tombol hamburger default disembunyikan */
+.nav-toggle {
+  display: none;
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
 
 #main-content {
   width: 80%;
@@ -139,6 +156,10 @@ hr {
   font-size: 1.2rem;
   color: #31e1f7;
   margin-bottom: 1rem;
+}
+
+.about-cv p {
+  line-height: 1.5;
 }
 
 .about-cv ul,
@@ -332,4 +353,86 @@ hr {
 }
 
 
+/* Versi mobile */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #400d51;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-menu li {
+    margin: 1rem 0;
+  }
+
+  #certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-intro {
+    grid-template-columns: 1fr; /* Ubah jadi satu kolom */
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .intro-text h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text p {
+    font-size: 1rem;
+    margin: 0 auto; /* Tengah untuk p */
+  }
+
+  .intro-image {
+    margin-top: 2rem;
+  }
+
+  .intro-image img {
+    max-width: 180px; /* Ukuran lebih kecil di mobile */
+  }
+
+  .about-content {
+    grid-template-columns: 1fr; /* Ubah ke 1 kolom */
+    padding: 2rem 1rem;
+  }
+
+  .about-skills {
+    margin-top: 2rem; /* Jarak agar tidak dempet dengan teks */
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-cv h3,
+  .about-skills h3 {
+    font-size: 1.1rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.95rem;
+  }
+
+}
